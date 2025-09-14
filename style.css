@@ -95,6 +95,8 @@ h2 {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
   gap: 15px;
+  list-style-type: none;
+  padding: 0;
 }
 .game-list li {
   background: #1f1f1f;
