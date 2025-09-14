@@ -3,16 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Servidor do Discord - Nosso Grupo</title>
+  <title>Play4Fun</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Cabeçalho -->
+  <!-- Navbar -->
   <header>
-    <img src="assets/logo.png" alt="Logo do Grupo" class="logo">
-    <h1>Bem-vindo ao nosso servidor!</h1>
-    <nav>
-      <ul>
+    <nav class="navbar">
+      <img src="assets/logo.png" alt="Logo Play4Fun" class="logo">
+      <button class="menu-toggle">☰</button>
+      <ul class="nav-links">
         <li><a href="#home">Início</a></li>
         <li><a href="#games">Jogos</a></li>
         <li><a href="#clips">Clipes</a></li>
@@ -22,60 +22,62 @@
     </nav>
   </header>
 
-  <!-- Seções principais -->
-  <main>
-    <section id="home">
-      <h2>Nosso Grupo</h2>
-      <p>Um grupo de amigos aleatórios que jogam de tudo: Street Fighter, Destiny 2, GTA 5, Counter Strike, Ark e muito mais!</p>
-    </section>
+  <!-- Banner -->
+  <section id="home" class="banner">
+    <div class="banner-content">
+      <h1>Bem-vindo ao Play4Fun!</h1>
+      <p>Um grupo de amigos que joga de tudo, sempre juntos!</p>
+    </div>
+  </section>
 
-    <section id="games">
-      <h2>Jogos que jogamos</h2>
-      <ul class="game-list">
-        <li>Street Fighter</li>
-        <li>Brawlhalla</li>
-        <li>Destiny 2</li>
-        <li>The Division</li>
-        <li>Monster Hunter</li>
-        <li>Black Desert</li>
-        <li>Cabal Online</li>
-        <li>F1</li>
-        <li>Counter Strike</li>
-        <li>Ark</li>
-        <li>Fifa</li>
-        <li>GTA 5</li>
-      </ul>
-    </section>
+  <!-- Jogos -->
+  <section id="games">
+    <h2>Jogos que jogamos</h2>
+    <ul class="game-list">
+      <li data-gif="assets/gifs/streetfighter.gif">Street Fighter</li>
+      <li data-gif="assets/gifs/brawlhalla.gif">Brawlhalla</li>
+      <li data-gif="assets/gifs/destiny2.gif">Destiny 2</li>
+      <li data-gif="assets/gifs/thedivision.gif">The Division</li>
+      <li data-gif="assets/gifs/monsterhunter.gif">Monster Hunter</li>
+      <li data-gif="assets/gifs/blackdesert.gif">Black Desert</li>
+      <li data-gif="assets/gifs/cabal.gif">Cabal Online</li>
+      <li data-gif="assets/gifs/f1.gif">F1</li>
+      <li data-gif="assets/gifs/cs.gif">Counter Strike</li>
+      <li data-gif="assets/gifs/ark.gif">Ark</li>
+      <li data-gif="assets/gifs/fifa.gif">Fifa</li>
+      <li data-gif="assets/gifs/gta5.gif">GTA 5</li>
+    </ul>
+  </section>
 
-    <section id="clips">
-      <h2>Clipes do grupo</h2>
-      <p>Aqui ficam nossos momentos épicos e engraçados 🎮😂</p>
-      <!-- Exemplo de vídeo embed -->
-      <div class="video-gallery">
-        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
-        <iframe src="https://www.youtube.com/embed/Zi_XLOBDo_Y" frameborder="0" allowfullscreen></iframe>
-      </div>
-    </section>
+  <!-- Clipes -->
+  <section id="clips">
+    <h2>Clipes do grupo</h2>
+    <div class="video-gallery">
+      <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/Zi_XLOBDo_Y" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </section>
 
-    <section id="afiliados">
-      <h2>Promoções para Gamers</h2>
-      <p>Aproveite os links dos nossos parceiros Shopee e Nuuvem:</p>
-      <ul class="promo-list">
-        <li><a href="https://shopee.com.br" target="_blank">🛒 Shopee - Ofertas de Tecnologia</a></li>
-        <li><a href="https://www.nuuvem.com/" target="_blank">🎮 Nuuvem - Jogos com desconto</a></li>
-      </ul>
-    </section>
+  <!-- Afiliados -->
+  <section id="afiliados">
+    <h2>Promoções para Gamers</h2>
+    <p>Aproveite os links dos nossos parceiros Shopee e Nuuvem:</p>
+    <ul class="promo-list">
+      <li><a href="https://shopee.com.br" target="_blank">🛒 Shopee - Ofertas de Tecnologia</a></li>
+      <li><a href="https://www.nuuvem.com/" target="_blank">🎮 Nuuvem - Jogos com desconto</a></li>
+    </ul>
+  </section>
 
-    <section id="contato">
-      <h2>Entre na nossa comunidade</h2>
-      <p>Junte-se a nós no Discord!</p>
-      <a href="https://discord.gg/SEU-LINK" target="_blank" class="btn">Entrar no Discord</a>
-    </section>
-  </main>
+  <!-- Contato -->
+  <section id="contato">
+    <h2>Entre na nossa comunidade</h2>
+    <p>Junte-se a nós no Discord!</p>
+    <a href="https://discord.gg/SEU-LINK" target="_blank" class="btn">Entrar no Discord</a>
+  </section>
 
   <!-- Rodapé -->
   <footer>
-    <p>&copy; 2025 Nosso Grupo - Feito por amigos e para amigos.</p>
+    <p>&copy; 2025 Play4Fun - Feito por amigos e para amigos.</p>
   </footer>
 
   <script src="script.js"></script>
