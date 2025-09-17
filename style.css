@@ -146,3 +146,41 @@ h2 {
 .game-list li:hover img {
   opacity: 1; /* GIF aparece */
 }
+
+/* Upload de vídeos */
+#uploadForm {
+  margin: 20px auto;
+  padding: 15px;
+  background: #1f1f1f;
+  border: 2px solid #00bfff;
+  border-radius: 10px;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#uploadForm input,
+#uploadForm button {
+  padding: 10px;
+  border-radius: 6px;
+  border: none;
+  font-size: 14px;
+}
+
+#uploadForm input {
+  background: #0d0d0d;
+  color: #fff;
+}
+
+#uploadForm button {
+  background: #00bfff;
+  color: #121212;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+#uploadForm button:hover {
+  background: #ffcc00;
+}

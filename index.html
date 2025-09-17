@@ -36,64 +36,35 @@
   <section id="games">
     <h2>Jogos que jogamos</h2>
     <ul class="game-list">
-      <li>
-        <span>Street Fighter</span>
-        <img src="assets/gifs/streetfighter.gif" alt="Street Fighter">
-      </li>
-      <li>
-        <span>Brawlhalla</span>
-        <img src="assets/gifs/brawlhalla.gif" alt="Brawlhalla">
-      </li>
-      <li>
-        <span>Destiny 2</span>
-        <img src="assets/gifs/destiny2.gif" alt="Destiny 2">
-      </li>
-      <li>
-        <span>The Division</span>
-        <img src="assets/gifs/thedivision.gif" alt="The Division">
-      </li>
-      <li>
-        <span>Monster Hunter</span>
-        <img src="assets/gifs/monsterhunter.gif" alt="Monster Hunter">
-      </li>
-      <li>
-        <span>Black Desert</span>
-        <img src="assets/gifs/blackdesert.gif" alt="Black Desert">
-      </li>
-      <li>
-        <span>Cabal Online</span>
-        <img src="assets/gifs/cabal.gif" alt="Cabal Online">
-      </li>
-      <li>
-        <span>F1</span>
-        <img src="assets/gifs/f1.gif" alt="F1">
-      </li>
-      <li>
-        <span>Counter Strike</span>
-        <img src="assets/gifs/cs.gif" alt="Counter Strike">
-      </li>
-      <li>
-        <span>Ark</span>
-        <img src="assets/gifs/ark.gif" alt="Ark">
-      </li>
-      <li>
-        <span>FIFA</span>
-        <img src="assets/gifs/fifa.gif" alt="FIFA">
-      </li>
-      <li>
-        <span>GTA 5</span>
-        <img src="assets/gifs/gta5.gif" alt="GTA 5">
-      </li>
+      <li><span>Street Fighter</span><img src="assets/gifs/streetfighter.gif" alt="Street Fighter"></li>
+      <li><span>Brawlhalla</span><img src="assets/gifs/brawlhalla.gif" alt="Brawlhalla"></li>
+      <li><span>Destiny 2</span><img src="assets/gifs/destiny2.gif" alt="Destiny 2"></li>
+      <li><span>The Division</span><img src="assets/gifs/thedivision.gif" alt="The Division"></li>
+      <li><span>Monster Hunter</span><img src="assets/gifs/monsterhunter.gif" alt="Monster Hunter"></li>
+      <li><span>Black Desert</span><img src="assets/gifs/blackdesert.gif" alt="Black Desert"></li>
+      <li><span>Cabal Online</span><img src="assets/gifs/cabal.gif" alt="Cabal Online"></li>
+      <li><span>F1</span><img src="assets/gifs/f1.gif" alt="F1"></li>
+      <li><span>Counter Strike</span><img src="assets/gifs/cs.gif" alt="Counter Strike"></li>
+      <li><span>Ark</span><img src="assets/gifs/ark.gif" alt="Ark"></li>
+      <li><span>FIFA</span><img src="assets/gifs/fifa.gif" alt="FIFA"></li>
+      <li><span>GTA 5</span><img src="assets/gifs/gta5.gif" alt="GTA 5"></li>
     </ul>
   </section>
 
   <!-- Clipes -->
   <section id="clips">
     <h2>Clipes do grupo</h2>
-    <div class="video-gallery">
-      <iframe src="https://www.youtube.com/watch?v=5-lr0hv81bU" frameborder="0" allowfullscreen></iframe>
-      <iframe src="https://www.youtube.com/watch?v=_szPXQ_YRjc" frameborder="0" allowfullscreen></iframe>
-    </div>
+
+    <!-- Formulário de Upload -->
+    <form id="uploadForm">
+      <input type="password" id="uploadPassword" placeholder="Senha do grupo" required>
+      <input type="text" id="tag" placeholder="Sua Tag" required>
+      <input type="file" id="videoFile" accept="video/*" required>
+      <button type="submit">Enviar Vídeo</button>
+    </form>
+
+    <!-- Onde os vídeos vão aparecer -->
+    <div id="videoGallery" class="video-gallery"></div>
   </section>
 
   <!-- Afiliados -->
