@@ -5,11 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Play4Fun</title>
   <link rel="stylesheet" href="style.css">
-  <!-- Fonte retrô arcade -->
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
 <body>
-  <!-- Navbar -->
   <header>
     <nav class="navbar">
       <img src="assets/logo.png" alt="Logo Play4Fun" class="logo">
@@ -24,7 +22,6 @@
     </nav>
   </header>
 
-  <!-- Banner -->
   <section id="home" class="banner">
     <div class="banner-content">
       <h1>Bem-vindo a Play4Fun!</h1>
@@ -32,7 +29,6 @@
     </div>
   </section>
 
-  <!-- Jogos -->
   <section id="games">
     <h2>Jogos que jogamos</h2>
     <ul class="game-list">
@@ -51,23 +47,21 @@
     </ul>
   </section>
 
-  <!-- Clipes -->
   <section id="clips">
-    <h2>Clipes do grupo</h2>
+    <h2>Galeria do Grupo</h2>
+    
+    <div class="gallery-controls">
+      <select id="channelFilter">
+        <option value="all">Todos os Canais</option>
+        </select>
+      <button id="shuffleBtn">🔀 Misturar</button>
+    </div>
 
-    <!-- Formulário de Upload -->
-    <form id="uploadForm">
-      <input type="password" id="uploadPassword" placeholder="Senha do grupo" required>
-      <input type="text" id="tag" placeholder="Sua Tag" required>
-      <input type="file" id="videoFile" accept="video/*" required>
-      <button type="submit">Enviar Vídeo</button>
-    </form>
-
-    <!-- Onde os vídeos vão aparecer -->
-    <div id="videoGallery" class="video-gallery"></div>
+    <div id="videoGallery" class="video-gallery">
+      <p style="grid-column: 1/-1;">Carregando vídeos...</p>
+    </div>
   </section>
 
-  <!-- Afiliados -->
   <section id="afiliados">
     <h2>Promoções para Gamers</h2>
     <p>Aproveite os links dos nossos parceiros Shopee e Nuuvem:</p>
@@ -77,14 +71,12 @@
     </ul>
   </section>
 
-  <!-- Contato -->
   <section id="contato">
     <h2>Entre na nossa comunidade</h2>
     <p>Junte-se a nós no Discord!</p>
     <a href="https://discord.gg/SEU-LINK" target="_blank" class="btn">Entrar no Discord</a>
   </section>
 
-  <!-- Rodapé -->
   <footer>
     <p>&copy; 2025 Play4Fun - Feito por amigos e para amigos.</p>
   </footer>
