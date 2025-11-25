@@ -1,18 +1,13 @@
-/* CONFIGURAÇÕES:
-  1. Crie uma API Key no Google Cloud Console (Youtube Data API v3).
-  2. Pegue os IDs dos canais que você quer (ex: https://www.youtube.com/channel/UCxxxxxx -> O ID é o UCxxxxxx).
-*/
-const API_KEY = 'AIzaSyDftcprYKh5sDadUKtITKUnc0AkpKzxvY0'; // <-- COLOQUE SUA CHAVE API DENTRO DAS ASPAS
+/* CONFIGURAÇÕES */
+const API_KEY = 'AIzaSyDftcprYKh5sDadUKtITKUnc0AkpKzxvY0'; // <--- Verifique se sua chave está aqui!
 const CHANNELS = [
-  // Exemplo:
-  // { name: 'Alanzoka', id: 'UC4iO97x41tPjN-0gT46k1wA' },
   { name: 'DropGame', id: 'ID_DO_CANAL_1' }, 
-  { name: 'Play4Fun', id: 'UCzGnPuASSs-vqvarc-VYJsw' },
-  { name: 'LynFoss Jogos', id: 'UCrctVA0ta9LOe2wfmDNRFyg' },
-  { name: 'GeneralZ3us', id: 'UCZ_pO-V6waccY2IVrVdOvPQ' }
+  { name: 'GeneralZ3us', id: 'UCZ_pO-V6waccY2IVrVdOvPQ' },
+  { name: 'LynFoss Jogos', id: 'UCySguFVvF90uMbnZoxbGDww' },
+  { name: 'Play4Fun', id: 'UCzGnPuASSs-vqvarc-VYJsw' }, 
 ];
 
-let allVideos = []; // Armazena todos os vídeos carregados
+let allVideos = []; 
 
 document.addEventListener("DOMContentLoaded", () => {
   // Menu responsivo
@@ -24,11 +19,11 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Inicializa a Galeria se a API Key estiver presente
+  // Inicializa Galeria
   if (API_KEY) {
     initGallery();
   } else {
-    document.getElementById('videoGallery').innerHTML = '<p>⚠️ Erro na configuração </p>';
+    document.getElementById('videoGallery').innerHTML = '<p>⚠️ Configure a API_KEY</p>';
   }
   
   // Botão Aleatório
@@ -53,13 +48,45 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }
+
+  // Lógica do Modal (Fechar)
+  const modal = document.getElementById('videoModal');
+  const closeBtn = document.querySelector('.close-modal');
+  
+  // Fechar ao clicar no X
+  closeBtn.addEventListener('click', closeModal);
+  
+  // Fechar ao clicar fora do vídeo
+  window.addEventListener('click', (event) => {
+    if (event.target === modal) {
+      closeModal();
+    }
+  });
 });
+
+// Funções do Modal
+function openVideo(videoId) {
+  const modal = document.getElementById('videoModal');
+  const iframe = document.getElementById('modalPlayer');
+  
+  // Carrega o vídeo e já dá play automático (?autoplay=1)
+  iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+  modal.style.display = 'block';
+}
+
+function closeModal() {
+  const modal = document.getElementById('videoModal');
+  const iframe = document.getElementById('modalPlayer');
+  
+  // Limpa o src para parar o vídeo de tocar no fundo
+  iframe.src = '';
+  modal.style.display = 'none';
+}
 
 async function initGallery() {
   const gallery = document.getElementById('videoGallery');
   const filterSelect = document.getElementById('channelFilter');
 
-  // 1. Popula o Select com os nomes dos canais
   CHANNELS.forEach(channel => {
     const option = document.createElement('option');
     option.value = channel.id;
@@ -67,34 +94,28 @@ async function initGallery() {
     filterSelect.appendChild(option);
   });
 
-  // 2. Busca vídeos
   try {
-    // Busca em todos os canais simultaneamente
     await Promise.all(CHANNELS.map(async (channel) => {
       const videos = await fetchChannelVideos(channel.id, channel.name);
       allVideos = [...allVideos, ...videos];
     }));
 
-    // 3. Mistura e exibe
     shuffleArray(allVideos);
     renderVideos(allVideos);
 
   } catch (error) {
     console.error("Erro ao carregar vídeos:", error);
-    gallery.innerHTML = '<p>Erro ao carregar vídeos. Verifique o console (F12).</p>';
+    gallery.innerHTML = '<p>Erro ao carregar vídeos.</p>';
   }
 }
 
 async function fetchChannelVideos(channelId, channelName) {
-  // Troca UC por UU para pegar a playlist de uploads (economiza cota)
   const uploadPlaylistId = channelId.replace('UC', 'UU');
-  
   const url = `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=${uploadPlaylistId}&maxResults=6&key=${API_KEY}`;
 
   try {
     const res = await fetch(url);
     const data = await res.json();
-
     if (!data.items) return [];
 
     return data.items.map(item => ({
@@ -123,10 +144,12 @@ function renderVideos(videos) {
     const card = document.createElement('div');
     card.className = 'video-card';
     
+    // MUDANÇA AQUI: Tiramos o <a href> e colocamos um onclick na imagem
     card.innerHTML = `
-      <a href="https://www.youtube.com/watch?v=${video.videoId}" target="_blank">
+      <div class="video-thumb-container" onclick="openVideo('${video.videoId}')">
         <img src="${video.thumb}" alt="${video.title}" class="video-thumb">
-      </a>
+        <div class="play-icon">▶</div>
+      </div>
       <div class="video-info">
         <h3>${video.title}</h3>
         <p>👤 ${video.channelName}</p>
