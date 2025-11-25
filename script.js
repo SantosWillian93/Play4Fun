@@ -2,13 +2,14 @@
   1. Crie uma API Key no Google Cloud Console (Youtube Data API v3).
   2. Pegue os IDs dos canais que você quer (ex: https://www.youtube.com/channel/UCxxxxxx -> O ID é o UCxxxxxx).
 */
-const API_KEY = ''; // <-- COLOQUE SUA CHAVE API DENTRO DAS ASPAS
+const API_KEY = 'AIzaSyDftcprYKh5sDadUKtITKUnc0AkpKzxvY0'; // <-- COLOQUE SUA CHAVE API DENTRO DAS ASPAS
 const CHANNELS = [
   // Exemplo:
   // { name: 'Alanzoka', id: 'UC4iO97x41tPjN-0gT46k1wA' },
-  { name: 'Canal do Grupo', id: 'ID_DO_CANAL_1' }, 
-  { name: 'Membro 1', id: 'ID_DO_CANAL_2' },
-  { name: 'Membro 2', id: 'ID_DO_CANAL_3' }
+  { name: 'DropGame', id: 'ID_DO_CANAL_1' }, 
+  { name: 'Play4Fun', id: 'UCzGnPuASSs-vqvarc-VYJsw' },
+  { name: 'LynFoss Jogos', id: 'UCrctVA0ta9LOe2wfmDNRFyg' },
+  { name: 'GeneralZ3us', id: 'UCZ_pO-V6waccY2IVrVdOvPQ' }
 ];
 
 let allVideos = []; // Armazena todos os vídeos carregados
@@ -27,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (API_KEY) {
     initGallery();
   } else {
-    document.getElementById('videoGallery').innerHTML = '<p>⚠️ Configure a API_KEY no arquivo script.js</p>';
+    document.getElementById('videoGallery').innerHTML = '<p>⚠️ Erro na configuração </p>';
   }
   
   // Botão Aleatório
