@@ -3,7 +3,7 @@ const API_KEY = 'AIzaSyDftcprYKh5sDadUKtITKUnc0AkpKzxvY0'; // <--- Verifique se 
 const CHANNELS = [
   { name: 'DropGame', id: 'ID_DO_CANAL_1' }, 
   { name: 'GeneralZ3us', id: 'UCZ_pO-V6waccY2IVrVdOvPQ' },
-  { name: 'LynFoss Jogos', id: 'UCySguFVvF90uMbnZoxbGDww' },
+  { name: 'LynFossJogos', id: 'UCrctVA0ta9LOe2wfmDNRFyg' },
   { name: 'Play4Fun', id: 'UCzGnPuASSs-vqvarc-VYJsw' }, 
 ];
 
