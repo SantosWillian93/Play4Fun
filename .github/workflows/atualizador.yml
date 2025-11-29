@@ -1,0 +1,51 @@
+name: Atualizar Ofertas Diárias
+
+on:
+  # Gatilho 1: Agendamento (Todo dia às 06:00 BRT / 09:00 UTC)
+  schedule:
+    - cron: '0 9 * * *'
+  
+  # Gatilho 2: Botão Manual (Para testar na aba Actions)
+  workflow_dispatch:
+
+  # Gatilho 3: Ao fazer Push (Roda sempre que você subir código novo)
+  push:
+    branches:
+      - master
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  update-offers:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Baixar código do site
+        uses: actions/checkout@v3
+
+      - name: 🟢 Instalar Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+
+      - name: 📦 Instalar Dependências (se houver)
+        # O "npm init -y" criou o package.json, então é bom rodar isso
+        run: npm install
+
+      - name: 🤖 Rodar o Robô Shopee/Nuuvem
+        env:
+          RAKUTEN_CLIENT_ID: ${{ secrets.RAKUTEN_CLIENT_ID }}
+          RAKUTEN_CLIENT_SECRET: ${{ secrets.RAKUTEN_CLIENT_SECRET }}
+          SHOPEE_APP_SECRET: ${{ secrets.SHOPEE_APP_SECRET }}
+        run: |
+          node robo_ultimate_v4.js
+
+      - name: 💾 Salvar e Publicar no Site
+        run: |
+          git config --global user.name 'Robo Play4Fun'
+          git config --global user.email 'bot@play4fun.com'
+          git add ofertas.html
+          # O comando abaixo verifica se houve mudança antes de commitar para não dar erro
+          git diff --quiet && git diff --staged --quiet || (git commit -m "🔥 Ofertas atualizadas automaticamente" && git push)
