@@ -266,8 +266,9 @@ p {
   font-weight: 600; /* Poppins Semi-Bold */
   color: #fff;
   margin-bottom: 5px;
-  display: -webkit-box;
+display: -webkit-box;
   -webkit-line-clamp: 2;
+  line-clamp: 2; /* <--- ADICIONE ESSA LINHA PARA SUMIR O AVISO */
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
