@@ -165,3 +165,35 @@ function shuffleArray(array) {
     [array[i], array[j]] = [array[j], array[i]];
   }
 }
+
+
+/* Início da Vitrine de Ofertas */
+// ... (seu código existente do YouTube) ...
+
+// =========================================
+// CARREGAR OFERTAS AUTOMÁTICAS (ROBÔ)
+// =========================================
+async function loadDynamicOffers() {
+    const container = document.getElementById('dynamic-offers-container');
+    if (!container) return;
+
+    try {
+        // Tenta ler o arquivo que o Node gerou
+        const response = await fetch('ofertas.html');
+        if (!response.ok) throw new Error("Arquivo de ofertas não encontrado");
+        
+        const html = await response.text();
+        container.innerHTML = html;
+        
+    } catch (error) {
+        console.log("Nenhuma oferta automática carregada (rode o robô).");
+        // Não precisa fazer nada, o container fica vazio e só aparecem os fixos
+    }
+}
+
+// Chame a função quando o site carregar
+document.addEventListener("DOMContentLoaded", () => {
+    // ... seus outros inits ...
+    loadDynamicOffers(); 
+});
+/* Fim da Vitrine de Ofertas */
