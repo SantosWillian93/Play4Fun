@@ -4,7 +4,8 @@ const CHANNELS = [
   { name: 'DropGame', id: 'ID_DO_CANAL_1' }, 
   { name: 'GeneralZ3us', id: 'UCZ_pO-V6waccY2IVrVdOvPQ' },
   { name: 'LynFossJogos', id: 'UCrctVA0ta9LOe2wfmDNRFyg' },
-  { name: 'Play4Fun', id: 'UCzGnPuASSs-vqvarc-VYJsw' }, 
+  { name: 'Play4Fun', id: 'UCzGnPuASSs-vqvarc-VYJsw' },
+  { name: 'Christian borges', id: 'UCjlD4Q0T-TaxbHM5gva4zPA' },
 ];
 
 let allVideos = []; 
