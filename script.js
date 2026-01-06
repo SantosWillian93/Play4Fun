@@ -198,3 +198,33 @@ document.addEventListener("DOMContentLoaded", () => {
     loadDynamicOffers(); 
 });
 /* Fim da Vitrine de Ofertas */
+
+
+/* ==========================================================================
+   BUSCA AFILIADA NUUVEM (CORRIGIDO)
+   ========================================================================== */
+/* --- BUSCA AFILIADA NUUVEM (CORRIGIDO VIA PRINT) --- */
+function searchGame() {
+  const searchInput = document.getElementById('gameSearch').value;
+  
+  if (!searchInput) {
+    alert("Digite o nome de um jogo!");
+    return;
+  }
+
+  // 1. Seu ID de Afiliado (Confirmado pelo print)
+  const myAffiliateID = 'WWaFx44RWBw'; 
+  
+  // 2. ID da Nuuvem (O ERRO ESTAVA AQUI!)
+  // Antes estava 40432, mas sua conta usa a rede Brasil: 46796
+  const merchantID = '46796'; 
+
+  // 3. Monta a URL de busca da Nuuvem
+  const nuuvemSearchURL = `https://www.nuuvem.com/br-pt/catalog/search/${encodeURIComponent(searchInput)}`;
+
+  // 4. Cria o Deep Link (Agora com os IDs certos)
+  const affiliateLink = `https://click.linksynergy.com/deeplink?id=${myAffiliateID}&mid=${merchantID}&murl=${encodeURIComponent(nuuvemSearchURL)}`;
+
+  // 5. Abre em nova aba
+  window.open(affiliateLink, '_blank');
+}
